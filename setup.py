@@ -11,7 +11,7 @@ setuptools.setup(
     description="fetch a content from title tag in HTML file.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cm-hirano-shigetoshi/python_sample_command",
+    url="https://github.com/laprn/fetch_title.git",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
