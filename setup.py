@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="fetch_title",
+    name="fetch-info",
     version="0.1.0",
     author="y_mrt",
     author_email="y.mrt@tuta.io",
-    description="fetch a content from title tag in HTML file.",
+    description="fetch a header info from header tag in HTML file.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/laprn/fetch_title.git",
@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': ['fetch_title = fetch_title.fetch_title:main']
+        'console_scripts': ['fetch_title = fetch_info.fetch_header:main']
     },
     python_requires='>=3.7',
 )
