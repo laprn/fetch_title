@@ -24,14 +24,14 @@ def fetch_title(url):
         status = 'ERR'
         message = str(err)
         res = None
-    result = ResultContainer(status, message, res, url)
+    result = ResultContainer(status, message, res, url).__dict__
     return result
 
 def main(url):
     status = None
     message = None
     content = fetch_title(url)
-    print(content.__dict__)
+    print(content)
 
 if __name__ == '__main__':
     url = sys.argv[1]
