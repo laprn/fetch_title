@@ -2,8 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 import sys
 
-status = ''
-message = ''
+
 def fetch_title(url):
     try:
         soup = bs(requests.get(url).text, 'lxml')
@@ -16,7 +15,12 @@ def fetch_title(url):
         res = None
     return (status, message, res)
 
+def main(url):
+    fetch_title(url)
+
 if __name__ == '__main__':
+    status = ''
+    message = ''
     url = sys.argv[1]
-    content = fetch_title(url)
+    content = main(url)
     print(content)
