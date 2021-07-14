@@ -2,6 +2,17 @@ from bs4 import BeautifulSoup as bs
 import requests
 import sys
 
+class ResultContainer:
+    status = None
+    message = None
+    title = None
+    query = None
+
+    def __init__(self, status, message, title, query):
+        self.status = status
+        self.message = message
+        self.title = title
+        self.query = query
 
 def fetch_title(url):
     try:
@@ -13,14 +24,15 @@ def fetch_title(url):
         status = 'ERR'
         message = str(err)
         res = None
-    return (status, message, res)
+    result = ResultContainer(status, message, res, url)
+    return result
 
 def main(url):
-    fetch_title(url)
+    status = None
+    message = None
+    content = fetch_title(url)
+    print(content.__dict__)
 
 if __name__ == '__main__':
-    status = ''
-    message = ''
     url = sys.argv[1]
     content = main(url)
-    print(content)
