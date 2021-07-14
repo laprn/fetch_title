@@ -15,15 +15,12 @@ def fetch_title(url):
         res = None
     return (status, message, res)
 
-# def main(url):
-#     fetch_title(url)
+def main(url):
+    fetch_title(url)
 
-def main():
-    print("Hi")
 if __name__ == '__main__':
-    # status = ''
-    # message = ''
-    # url = sys.argv[1]
-    # content = main(url)
-    # print(content)
-    main()
+    status = ''
+    message = ''
+    url = sys.argv[1]
+    content = main(url)
+    print(content)
