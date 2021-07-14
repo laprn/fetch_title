@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': ['fetch_title = fetch_title.scrape:main']
+        'console_scripts': ['fetch_title = fetch_title.fetch_title:main']
     },
     python_requires='>=3.7',
 )
