@@ -15,7 +15,18 @@ class ResultContainer:
         self.title = title
         self.query = query
 
+    def call_info(self):
+        return {
+            'status': self.status,
+            'message': self.message,
+            'title': self.title,
+            'query': self.query
+        }
+
 def fetch_title(url):
+    status = None
+    message = None
+    title = None
     try:
         soup = bs(requests.get(url).text, 'lxml')
         status = 'OK'
@@ -23,18 +34,14 @@ def fetch_title(url):
         try:
             title = soup.title.string
         except AttributeError as err:
-            title = re.sub()
+            title = re.sub('https?://', '', url)
     except requests.exceptions.MissingSchema as err:
         status = 'ERR'
-        message = str(err)
-        title = None
-    result = ResultContainer(status, message, title, url).__dict__
+        message = str(err)        
+    result = ResultContainer(status, message, title, url).call_info()
     return result
 
 def main(url):
-    status = None
-    message = None
-    title = None
     content = fetch_title(url)
     print(content)
 
