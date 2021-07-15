@@ -1,7 +1,7 @@
 from setuptools import setup
 from codecs import open
 from os import path
-package_name = "fetch_info"
+package_name = "fetchinfo"
 root_dir = path.abspath(path.dirname(__file__))
 def _requirements():
     return [name.rstrip() for name in open(path.join(root_dir, 'requirements.txt')).readlines()]
@@ -9,7 +9,7 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 setup(
     name=package_name,
-    version='0.0.2',
+    version='0.0.5',
     description='Fetch a header info from header tag in HTML file.',
     long_description=long_description,
     long_description_content_type='text/markdown',
