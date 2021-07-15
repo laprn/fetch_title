@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as bs
 import requests
 import sys
+import re
 
 class ResultContainer:
     status = None
@@ -19,17 +20,21 @@ def fetch_title(url):
         soup = bs(requests.get(url).text, 'lxml')
         status = 'OK'
         message = 'fetching title success.'
-        res = soup.title.string
+        try:
+            title = soup.title.string
+        except AttributeError as err:
+            title = re.sub()
     except requests.exceptions.MissingSchema as err:
         status = 'ERR'
         message = str(err)
-        res = None
-    result = ResultContainer(status, message, res, url).__dict__
+        title = None
+    result = ResultContainer(status, message, title, url).__dict__
     return result
 
 def main(url):
     status = None
     message = None
+    title = None
     content = fetch_title(url)
     print(content)
 
