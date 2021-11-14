@@ -28,7 +28,7 @@ def fetch_title(url):
     message = None
     title = None
     try:
-        soup = bs(requests.get(url).text, 'lxml')
+        soup = bs(requests.get(url).content, 'lxml')
         status = 'OK'
         message = 'fetching title success.'
         try:
